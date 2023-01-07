@@ -1,12 +1,11 @@
 from passlib.context import CryptContext
-from fastapi.security import OAuth2PasswordBearer
-from fastapi import Depends, HTTPException, status
+
 import crud
 from sqlalchemy.orm import Session
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
 
-from eindproject.main import oauth2_scheme
+
 
 SECRET_KEY = "06e5083adee59d5930032f440eefd72a0b26179b03fc0737e27e994e034bb1de"
 ALGORITHM = "HS256"
