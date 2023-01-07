@@ -10,6 +10,7 @@ site
 .coverage
 coverage.xml
 .netlify
+*.db
 log.txt
 Pipfile.lock
 env3.*
@@ -20,4 +21,3 @@ docs.zip
 archive.zip
 test_main.http
 sqlitedb
-*.db
