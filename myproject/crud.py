@@ -11,6 +11,7 @@ def get_player(db: Session, player_id: int):
 
 def get_player_by_name(db: Session, name: str):
     db_player = db.query(models.Player).filter(models.Player.name == name).first()
+    return db_player
 
 
 def get_players(db: Session, skip: int = 0, limit: int = 100):
