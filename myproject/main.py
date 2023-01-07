@@ -10,7 +10,7 @@ import models
 import schemas
 import auth
 import os
-import secrets
+
 
 if not os.path.exists('.\sqlitedb'):
     os.makedirs('.\sqlitedb')
