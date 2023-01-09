@@ -7,6 +7,12 @@
 Het thema van mijn API is **schaken**. Sinds kort is schaken een kleine nieuwe hobby geworden van mij. Het is een API-service met een database gemaakt met SQLite.
 De API en database zijn gehost op **Okteto*.
 
+## Database
+Hier is een tabel over de database:
+![database](https://user-images.githubusercontent.com/91954479/211392059-2c0cba5e-6448-47dd-aeb5-9918dcb7d10e.png)
+
+
+
 ## Endpoints
 
 ### Get endpoint 1
