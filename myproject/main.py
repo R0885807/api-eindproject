@@ -57,13 +57,13 @@ def read_player(player_id: int, db: Session = Depends(get_db), token: str = Depe
 
 
 @app.get("/players/", response_model=list[schemas.Player])
-def read_players(skip: int = 0, limit: int = 5, db: Session = Depends(get_db)):
+def read_players(skip: int = 0, limit: int = 5, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     players = crud.get_players(db, skip=skip, limit=limit)
     return players
 
 
 @app.post("/player/", response_model=schemas.Player)
-def create_player(player: schemas.PlayerCreate, db: Session = Depends(get_db)):
+def create_player(player: schemas.PlayerCreate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_player = crud.get_player_by_name(db, name=player.name)
     if db_player:
         raise HTTPException(status_code=400, detail="Player already exists")
@@ -72,14 +72,14 @@ def create_player(player: schemas.PlayerCreate, db: Session = Depends(get_db)):
 
 
 @app.get("/opener/{opener_id}", response_model=schemas.Opener)
-def read_opener(opener_id: int, db: Session = Depends(get_db)):
+def read_opener(opener_id: int, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_opener = crud.get_opener(db, opener_id=opener_id)
     if db_opener is None:
         raise HTTPException(status_code=404, detail="Opener not found")
     return db_opener
 
 @app.put("/opener/", response_model=schemas.Opener)
-def create_opener(opener: schemas.OpenerCreate, db: Session = Depends(get_db)):
+def create_opener(opener: schemas.OpenerCreate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_opener = crud.get_opener_by_name(db, name=opener.name)
     if db_opener:
         raise HTTPException(status_code=400, detail="Opener already exists")
@@ -87,7 +87,7 @@ def create_opener(opener: schemas.OpenerCreate, db: Session = Depends(get_db)):
 
 
 @app.delete("/opener/{opener_id}", response_model=schemas.Opener)
-def delete_opener(opener_id: int, db: Session = Depends(get_db)):
+def delete_opener(opener_id: int, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_opener = crud.get_opener(db, opener_id=opener_id)
     if db_opener is None:
         raise HTTPException(status_code=404, detail="Opener not found")
@@ -98,7 +98,7 @@ def delete_opener(opener_id: int, db: Session = Depends(get_db)):
 
 
 @app.get("/stat/{stat_id}", response_model=schemas.Stat)
-def read_stat(stat_id: int, db: Session = Depends(get_db)):
+def read_stat(stat_id: int, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     db_stat = crud.get_stat(db, stat_id=stat_id)
     if db_stat is None:
         raise HTTPException(status_code=404, detail="Stat not found")
@@ -106,5 +106,5 @@ def read_stat(stat_id: int, db: Session = Depends(get_db)):
 
 
 @app.post("/stat/", response_model=schemas.Stat)
-def create_stat(stat: schemas.StatCreate, db: Session = Depends(get_db)):
+def create_stat(stat: schemas.StatCreate, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     return crud.create_player_stat(db=db, stat=stat)
