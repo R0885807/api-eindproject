@@ -1,3 +1,4 @@
+
 # API-eindproject
 
 - Mijn hosted **API** link: **https://chess-api-service-r0885807.cloud.okteto.net/**
@@ -74,7 +75,7 @@ When using the delete endpoint, you get a 500 error, but the opener still gets d
 ![Delete not found](https://user-images.githubusercontent.com/91954479/211388991-c751f8e5-d8d5-47af-a7a6-b7dedba66863.png)
 
 ## Full OpenApi docs
-![Openapi1](https://user-images.githubusercontent.com/91954479/211391147-77fea3b4-573a-43df-a1dd-5765fa9479ce.png)
+![Openapi1](https://user-images.githubusercontent.com/91954479/211393666-4eef9a17-22c2-4400-ada1-4bb211376143.png)
 ![Openapi2](https://user-images.githubusercontent.com/91954479/211391151-4c87e860-08e2-4e42-8d38-ae2b38e5309a.png)
 ![Openapi3](https://user-images.githubusercontent.com/91954479/211391156-f6353bc7-e829-46c0-acd5-518a014281fa.png)
 ![Openapi4](https://user-images.githubusercontent.com/91954479/211391158-f7c2abad-b227-44de-9a9e-ef4fb8e7ae5d.png)
