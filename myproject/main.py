@@ -97,7 +97,7 @@ def delete_opener(opener_id: int, db: Session = Depends(get_db)):
     return {"ok": True}
 
 
-@app.get("/stat/", response_model=schemas.Stat)
+@app.get("/stat/{stat_id}", response_model=schemas.Stat)
 def read_stat(stat_id: int, db: Session = Depends(get_db)):
     db_stat = crud.get_stat(db, stat_id=stat_id)
     if db_stat is None:
